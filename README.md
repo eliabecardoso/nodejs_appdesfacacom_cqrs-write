@@ -2,7 +2,7 @@
 
 # Packages
 yarn init -y              --> Init Project
-yarn add nodemon -D       --> live reload (pckg.json -> nodemon run dev 'src/app')
+#yarn add nodemon -D       --> live reload (pckg.json -> nodemon run dev 'src/app')
 yarn add express          --> Micro Framework Web
 yarn add sequelize        --> ORM (yarn sequelize init) (yarn sequelize migration:create --name=example)
 yarn add sequelize-cli -D --> Migrations (Up / Down) (yarn sequelize db:migrate)
