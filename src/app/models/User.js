@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const { promisify } = require("util");
+const jwt = require("jsonwebtoken");
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
@@ -26,6 +26,10 @@ module.exports = (sequelize, DataTypes) => {
 
   User.prototype.checkPassword = async function(password) {
     return bcrypt.compare(password, this.password_hash);
+  };
+
+  User.prototype.generateToken = function() {
+    return jwt.sign({ id: this.id }, process.env.APP_SECRET);
   };
 
   return User;

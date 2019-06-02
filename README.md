@@ -10,6 +10,7 @@
 # yarn add sqlite3 -D       --> DB for tests (archive)
 # yarn add supertest -D     --> Test Requests, aux for Jest
 # yarn add faker -D         --> generate fake data for Tests
+# yarn add factory-girl -D  --> Factory data for Tests
 # yarn add dotenv           --> For load environment variable's 
 # yarn add bcrypt           --> for Crypt hash
 # yarn add jsonwebtoken     --> for tokenization authentications
