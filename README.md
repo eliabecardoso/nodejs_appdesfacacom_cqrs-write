@@ -1,6 +1,6 @@
 # APP DESFACA.COM - Desface dos seus itens
 
-# yarn init -y              --> Init Project
+yarn init -y              --> Init Project
 # yarn add nodemon -D       --> live reload (pckg.json -> nodemon run dev 'srcapp')
 # yarn add express          --> Micro Framework Web
 # yarn add sequelize        --> ORM (yarn sequelize init) (yarn sequelize migration:create --name=) 
