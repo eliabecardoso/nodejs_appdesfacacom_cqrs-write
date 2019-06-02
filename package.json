@@ -1,0 +1,40 @@
+{
+  "name": "APP_DESFACA",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon run dev src/server.js --ignore __tests__",
+    "pretest": "cross-env NODE_ENV=test sequelize db:migrate",
+    "test": "cross-env NODE_ENV=test jest",
+    "posttest": "cross-env NODE_ENV=test sequelize db:migrate:undo:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliabehenrique/appdesfacacom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eliabehenrique/appdesfacacom/issues"
+  },
+  "homepage": "https://github.com/eliabehenrique/appdesfacacom#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "cross-env": "^5.2.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "pg": "^7.11.0",
+    "sequelize": "^5.8.7"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
+    "sequelize-cli": "^5.4.0",
+    "sqlite3": "^4.0.8",
+    "supertest": "^4.0.2"
+  }
+}
