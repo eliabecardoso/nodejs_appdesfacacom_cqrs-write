@@ -13,7 +13,7 @@ describe("Authentication", () => {
     const user = await factory.create("User");
 
     const response = await request(app)
-      .post("/api/authenticate")
+      .post("/api/sessions")
       .send({
         email: "email@user.com",
         password: user.password
@@ -26,7 +26,7 @@ describe("Authentication", () => {
     const user = await factory.create("User");
 
     const response = await request(app)
-      .post("/api/authenticate")
+      .post("/api/sessions")
       .send({
         email: user.email,
         password: "11111"
@@ -39,7 +39,7 @@ describe("Authentication", () => {
     const user = await factory.create("User");
 
     const response = await request(app)
-      .post("/api/authenticate")
+      .post("/api/sessions")
       .send({
         email: user.email,
         password: user.password
@@ -52,12 +52,36 @@ describe("Authentication", () => {
     const user = await factory.create("User");
 
     const response = await request(app)
-      .post("/api/authenticate")
+      .post("/api/sessions")
       .send({
         email: user.email,
         password: user.password
       });
 
     expect(response.status).toBe(200);
+  });
+
+  // it("should valid user are authenticate through token", async () => {
+
+  // });
+
+  it("should logout user and your credentials", async () => {
+    const user = await factory.create("User");
+
+    const responseAuth = await request(app)
+      .post("/api/sessions")
+      .send({
+        email: user.email,
+        password: user.password
+      });
+
+    const token = "Bearer " + responseAuth.body.token;
+
+    const responseLogout = await request(app)
+      .post("/api/sessions/logout")
+      .send()
+      .set("authorization", token);
+
+    expect(responseLogout.status).toBe(200);
   });
 });
