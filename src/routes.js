@@ -5,5 +5,6 @@ const ProductController = require("./app/controllers/ProductController");
 
 routes.use(auth);
 routes.post("/products", ProductController.store);
+routes.get("/products", ProductController.index);
 
 module.exports = routes;

@@ -13,10 +13,9 @@ module.exports = async (req, res, next) => {
     const decoded = await promisify(jwt.verify)(token, process.env.APP_SECRET);
     req.id = decoded.id;
     req.username = decoded.username;
-    
+
     return next();
-  } catch (error) {
-    console.log(error);
-    return res.status(401).json({ message: "Token inválido" });
+  } catch (err) {
+    return res.status(401).json({ message: err.message });
   }
 };

@@ -12,7 +12,7 @@ class AppController {
   }
 
   routes() {
-    this.express.use("/appwrite", require("./routes"));
+    this.express.use("/apiw", require("./routes"));
   }
 }
 
