@@ -11,6 +11,8 @@ yarn add jest -D          --> Framework Testing JS(TDD) -> yarn jest --init -> (
 yarn add sqlite3 -D       --> DB for tests (archive);
 yarn add supertest -D     --> Test Requests, aux for Jest;
 yarn add faker -D         --> generate fake data for Tests;
+yarn add factory-girl -D  --> generate factories data for Tests;
+yarn add cross-env        --> For load environment variable's;
 yarn add dotenv           --> For load environment variable's;
 yarn add bcrypt           --> for Crypt hash;
 yarn add jsonwebtoken     --> for tokenization authentications;

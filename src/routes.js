@@ -1,11 +1,9 @@
 const routes = require("express").Router();
 const auth = require("./app/middlewares/authMiddleware");
 
-const SessionController = require("./app/controllers/SessionController");
-
-routes.post("/sessions", SessionController.authenticate);
+const ProductController = require("./app/controllers/ProductController");
 
 routes.use(auth);
-routes.post("/sessions/logout", SessionController.logout);
+routes.post("/products", ProductController.store);
 
 module.exports = routes;
