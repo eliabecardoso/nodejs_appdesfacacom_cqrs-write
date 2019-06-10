@@ -9,14 +9,7 @@ module.exports = (Sequelize, DataTypes) => {
       quantity: DataTypes.INTEGER
     },
     {
-      hooks: {
-        beforeValidate(product, options) {
-          const err = validateRequiredFields(product);
-          // console.log(product);
-          if (err)
-            return Promise.reject(new Error(`campo(s) ${err} inválido(s).`));
-        }
-      }
+      hooks: {}
     }
   );
 
@@ -25,17 +18,4 @@ module.exports = (Sequelize, DataTypes) => {
   };
 
   return Product;
-};
-
-const validateRequiredFields = function(product) {
-  let err = [];
-
-  if (!product.userId) err.push("Usuário");
-  if (!product.categoryId) err.push("Categoria");
-  if (!product.name) err.push("Nome");
-  if (!product.stateCondition) err.push("Condição");
-  if (!product.quantity) err.push("Quantidade");
-  // if (!product.detail || !product.detail.description) err.push("Descrição");
-
-  return err.length >= 1 && err.reduce((prev, curr) => prev + ", " + curr);
 };

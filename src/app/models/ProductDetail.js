@@ -6,28 +6,9 @@ module.exports = (Sequelize, DataTypes) => {
       description: DataTypes.STRING
     },
     {
-      hooks: {
-        beforeValidate: function(productDetail) {
-          const err = validateRequiredFields(productDetail);
-
-          console.log(productDetail);
-
-          if (err)
-            return Promise.reject(new Error(`campo(s) ${err} inválido(s).`));
-        }
-      }
+      hooks: {}
     }
   );
 
-
-
   return ProductDetail;
-};
-
-const validateRequiredFields = function(productDetail) {
-  let err = [];
-
-  if (!productDetail.description) err.push("Descrição");
-
-  return err.length >= 1 && err.reduce((prev, curr) => prev + ", " + curr);
 };

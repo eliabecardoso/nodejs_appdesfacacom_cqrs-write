@@ -12,7 +12,7 @@ describe("Products", () => {
     const response = await request(app)
       .post(routePrefix + "products")
       .set("Authorization", tokenValid)
-      .send({ newProduct: {}, newProductDetails: {} });
+      .send({ newProduct: {} });
 
     expect(response.body).toContain("Error: campo(s)");
   });
@@ -24,16 +24,16 @@ describe("Products", () => {
       categoryId: category.id,
       name: "Produto exemplo",
       stateCondition: 1,
-      quantity: 3
-    };
-    const newProductDetails = {
-      description: "XESQ"
+      quantity: 3,
+      productDetails: {
+        description: "UHUSHUSH"
+      }
     };
 
     const response = await request(app)
       .post(routePrefix + "products")
       .set("Authorization", tokenValid)
-      .send({ newProduct, newProductDetails });
+      .send({ newProduct });
 
     expect(response.body).toBe(200);
   });
