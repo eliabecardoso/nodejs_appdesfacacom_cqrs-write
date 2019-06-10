@@ -12,7 +12,7 @@ factory.define("Category", Category, {
 factory.define("Product", Product, {
   categoryId: 1,
   name: faker.commerce.productName(),
-  state_condition: Math.floor(Math.random() * 2) + 1,
+  stateCondition: Math.floor(Math.random() * 2) + 1,
   quantity: Math.floor(Math.random() * 10) + 1
 });
 
